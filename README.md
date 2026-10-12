@@ -18,11 +18,11 @@ Todos los scripts calculan las rutas desde la raíz del proyecto con `here::here
 ## Limitaciones
 
 - `optimizacion-hiperparam.R`: No se completaron las 30 iteraciones configuradas. Por tiempo, la corrida se cortó con 25 iteraciones registradas en el log y se eligió la iteración 20: 
-`num_iterations = 3849`, `num_leaves = 806`, `min_sum_hessian_in_leaf = 0,0486`. 
+`num_iterations = 3849`, `num_leaves = 806`, `min_sum_hessian_in_leaf = 0.486`. 
 La sección final del script (entrenamiento con 03–04 y ganancia en 202106) no llegó a ejecutarse.
 
 - `prediccion-agosto-v2.R`: Lee la iteración 20 del `BO_log.txt`, pero el `BO_log.txt` lo perdí por configurar mal la VM.
 No se corrieron las 20 semillas, solo se completaron las dos primeras (285937 y 474619). 
-La entrega final promedia las probabilidades de esas dos y toma los 11.750 clientes con mayor probabilidad. Si se corren las 20, ese bloque filtra explícitamente esas dos semillas, así que la entrega no cambia.
+La entrega final promedia las probabilidades de esas dos y toma los 11750 clientes con mayor probabilidad. Si se corren las 20, ese bloque filtra explícitamente esas dos semillas, así que la entrega no cambia.
 
 - Reproducibilidad: dudosa en este momento: Hay semillas fijas en la partición (413353), en la bayesiana y en cada modelo (`deterministic = TRUE`, `data_random_seed` fijo), pero no está garantizado que se reproduzca exactamente la entrega porque la bayesiana se cortó a mano en la iteración 25. 
